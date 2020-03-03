@@ -1,0 +1,350 @@
+<body id="request" style="padding-top: 100px">
+   <!-- NAVBAR -->
+   <nav class="navbar fixed-top navbar-white bg-white navbar-expand">
+    <div class="container">
+      <!-- NAVBAR LOGO -->
+      <div class="col col-lg-2">
+        <a class="navbar-brand" routerLink="/home">
+            <img src="../../assets/images/peersarmalamlogo.png" width="100%" >
+        </a>
+      </div>
+      <!-- NAVBAR LOGO -->
+
+      <!-- NAVBAR SEARCH -->
+      <div class="col">
+        <div class="site-header__search">
+          <div class="p-1 bg-light rounded-pill shadow-sm">
+            <div class="input-group">
+              <input
+                type="search"
+                placeholder="Search for loans"
+                aria-describedby="button"
+                class="form-control border-0 bg-light"
+              />
+              <div class="input-group-append">
+                <button
+                  id="button"
+                  type="submit"
+                  class="btn btn-link text-primary"
+                >
+                  <i class="fa fa-search"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- NAVBAR SEARCH -->
+
+      <!-- NAVBAR PROFILE DROPDOWN & LOAN REQUEST CTA-->
+      <div class="col-md-auto">
+        <div class="row">
+          <div class="user_details my-auto">
+            <strong>{{myName}}</strong><br />
+            <span style="color:#414141;">${{myBalance}}</span>
+          </div>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbar-list-4"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbar-list-4">
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdownMenuLink"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <img
+                    src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg"
+                    width="40"
+                    height="40"
+                    class="rounded-circle border"
+                    alt=""
+                  />
+                </a>
+                <div
+                  class="dropdown-menu"
+                  aria-labelledby="navbarDropdownMenuLink"
+                >
+                  <a class="dropdown-item" routerLink="/history">History</a>
+                  <a class="dropdown-item" href="#">Edit Profile</a>
+                  <a class="dropdown-item" href="#">Log Out</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <button type="button" class="btn btn-primary" routerLink="/request">
+            <i class="fa fa-chevron-circle-up"></i>New loan request
+          </button>
+        </div>
+      </div>
+      <!-- NAVBAR PROFILE DROPDOWN & LOAN REQUEST CTA-->
+    </div>
+  </nav>
+  <!-- NAVBAR --><br /><br />
+
+    <div class="container-submit mx-auto" style="width: 600px;">
+        <form style="margin-top: 30px" [formGroup]="loanForm">
+            <div class="row mx-auto">
+                <img src="../../assets/images/one.png" style="width: 40px; height: 40px;">
+                <h5 class="font-weight-light" style="margin-top: 10px; margin-left: 30px;">PERSONAL INFORMATION</h5>
+            </div>
+            <br>
+            <div class="card special-card">
+                <div class="card-body">
+                    <div class="container form-fix">
+                        <fieldset disabled>
+                            <div class="row">
+                                <div class="col">
+                                    <h6 class="font-weight-light" style="margin-left: 12px;">First Name</h6>
+                                    <input class="form-control" id="firstname" required="firstname" placeholder="Truong"
+                                        formControlName="firstname">
+                                </div>
+                                <div class="col">
+                                    <h6 class="font-weight-light" style="margin-left: 12px;">Last Name</h6>
+                                    <input class="form-control" id="lastname" required="lastname" placeholder="Hai Bang"
+                                        formControlName="lastname">
+                                </div>
+                            </div>
+                        </fieldset>
+                            <br>
+
+                            <div class="row">
+                            <fieldset disabled>
+                                <div class="col">
+                                    <h6 class="font-weight-light" style="margin-left: 12px;">Job Title</h6>
+                                    <input class="form-control" id="jobtitle" required="jobtitle"
+                                        placeholder="Senior Engineer" formControlName="jobtitle">
+                                </div>
+                        </fieldset>
+
+                        <div class="col">
+                            <h6 class="font-weight-light" style="margin-left: 12px;">Company</h6>
+                            <input class="form-control" id="company" required="company" placeholder=""
+                                formControlName="company">
+                        </div>
+                    </div>
+                    <fieldset disabled>
+                        <div class="row">
+                            <div class="col">
+                                <h6 class="font-weight-light" style="margin-left: 12px;">Address</h6>
+                                <input class="form-control" id="address" required="address" placeholder=""
+                                    formControlName="address">
+                            </div>
+                        </div>
+                    </fieldset>
+                    <br>
+
+                    <div class="row">
+                        <div class="col-4">
+                            <h6 class="font-weight-light" style="margin-left: 12px;">Years on job</h6>
+                            <input class="form-control" type="number" value="2" id="yearsonjob" formControlName="years">
+                        </div>
+                        <div class="col">
+                            <h6 class="font-weight-light" style="margin-left: 12px;">Phone Number</h6>
+                            <input class="form-control" id="phonenumber" required="required" placeholder=""
+                                formControlName="phonenumber">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col">
+
+                            <h6 class="font-weight-light" style="margin-left: 12px;">Account Number</h6>
+                            <fieldset disabled>
+                                <input class="form-control" id="accountno" required="required"
+                                    placeholder="1234 5678 898" formControlName="accountnumber">
+                            </fieldset>
+                        </div>
+                    </div>
+                    <br>
+
+                    <br>
+
+                </div>
+            </div>
+    </div>
+
+    <br>
+
+    <!--LOAN CARD -->
+    <div class="row mx-auto">
+        <img src="../../assets/images/two.png" style="width: 40px; height: 40px;">
+        <h5 class="font-weight-light" style="margin-top: 10px; margin-left: 30px;">LOAN INFORMATION</h5>
+    </div>
+    <br>
+    <div class="card">
+        <div class="card-body">
+            <div class="container form-fix">
+                <h6 class="font-weight-light">Image of desired item</h6>
+                <div class="custom-file">
+                    <label for="uploadfile"></label>
+                    <input type="file" class="custom-file-input" id="image">
+                    <label class="custom-file-label" for="image">Upload the image</label>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group" style="width: 100%; margin-left: -10px;">
+                            <label for="comment" style="margin-left:20px;">Detailed description of your desired
+                                item</label>
+                            <textarea class="form-control" rows="5" id="comment"
+                                formControlName="description"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <br>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <select class="form-control" id="loancategory" (change)="loancategory_func()" formControlName="loancategory" >
+                                <option value="" disabled selected>Select your loan category</option>
+                                <option>Home Loan</option>
+                                <option>Car Loan</option>
+                                <option>SME Loan</option>
+                                <option>Study Loan</option>
+                                <option>Others: please specify</option>
+                            </select>
+                            <br>
+                            <div class="form-group">
+                                <input class="form-control" id="showothers" placeholder="ie. Wedding loan"
+                                    style="display:none;" formControlName="loancategory">
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col">
+                        <h6 class="font-weight-light">Amount Request</h6>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">$</span>
+                            </div>
+                            <input type="number" min="1" style="margin-left: -1px;" formControlName="amount" class="form-control"
+                                aria-label="Amount (to the nearest dollar)">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <h6 class="font-weight-light">Interest Rate</h6>
+                        <div class="input-group mb-3">
+                            <input type="number" step="0.01" min="0.25" class="form-control" aria-label="Interest rate"
+                                placeholder="1.25" formControlName="interest">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col">
+                        <h6 class="font-weight-light">Loan Duration</h6>
+                        <div class="input-group mb-3">
+                            <input type="number" min="1" placeholder="30" style="margin-left: -1px;"
+                                class="form-control" formControlName="duration" aria-label="Months">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <h6 class="font-weight-light">Bank Interest Rate</h6>
+                        <!-- <fieldset disabled><input type="text" style="text-align: center; margin-top:20px;">
+
+                        </fieldset> -->
+                        <p>2.23%</p>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+    <br>
+    <div class="row justify-content-end"style="margin-right: 5px;">
+    <button class="btn btn-outline-success" type="button"  data-toggle="modal"
+    data-target="#successmodal" id="submitbutton" (click)="submitLoan()"
+    >Submit Loan
+    </button></div>
+
+    <!-- <button class="btn btn-outline-success float-right" type="button" id="loadingbutton" disabled
+        style="margin-bottom: 10px" (click)="submitLoan()">
+        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+    </button>
+<div class="row float-right">
+        
+    
+    <button style="margin-right:15px" type="button" class="btn btn-outline-success" data-toggle="modal"
+            data-target="#successmodal">
+            Submit
+        </button></div> -->
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="successmodal" tabindex="-1" role="dialog" aria-labelledby="Success"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Success!</h5>
+                </div>
+                <div class="modal-body">
+                    You have successfully submited a loan request.
+                    Please wait a few days for lenders to pick up your request
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-primary" data-dismiss="modal"
+                        (click)="gotoHome()">Bring me to
+                        homepage</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    </form>
+    </div>
+
+    <div *ngFor="let loan of loanList">
+        <p>{{loan.accountNumber}}</p>
+        <p>{{loan.id}}</p>
+        <p>{{loan.loanStatus}}</p>
+        <p>{{loan.custFirstName}}</p>
+        <p>{{loan.loanerAccount}}</p>
+        <p>{{loan.imgLink}}</p>
+        <p>{{loan.amount}}</p>
+        <p>{{loan.interestRate}}</p>
+        <p>{{loan.duration}}</p>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__bottom">
+                Peersarmalam is an IS444 project developed by Group 4.
+            </div>
+        </div>
+    </footer>
+    <!-- FOOTER -->
+</body>
