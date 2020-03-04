@@ -12,11 +12,16 @@ export class LinkComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
+
+    // Get passed down information
+
     let maleInfo = window.sessionStorage.getItem("maleInfo");
     console.log(maleInfo)
     console.log(typeof maleInfo)
     let encodedString = btoa(maleInfo);
-    this.currentURL = window.location.host + "/friend?link=" + encodedString;
+    this.currentURL = window.location.host + "/home?link=" + encodedString;
     console.log(this.currentURL)
   }
+
+
 }
