@@ -1,10 +1,18 @@
+<div *ngIf="!hasLink" class="block">
+    <h1>Ready to plan your event with WeWorld?</h1>
+</div>
+
+<div *ngIf="hasLink" class="block">
+    <h1>Your friend is waiting for you at WeWorld!</h1>
+</div>
+
 <form [formGroup]="maleForm">
 
     <input formControlName="name" id="input-1" type="text" placeholder="Bang" required autofocus />
     <label for="input-1">
       <span class="label-text">Your Name</span>
       <span class="nav-dot"></span>
-      <div class="signup-button-trigger">Start</div>
+      <div class="signup-button-trigger">Click me</div>
     </label>
 
 
@@ -44,7 +52,7 @@
     <span class="nav-dot"></span>       
 </label>
 
-    <input formControlName="preferences" id="input-4" type="text" placeholder="Concert, Carnival, Food, Bar..." required />
+    <input formControlName="preferences" id="input-4" type="text" placeholder="Concert, Carnival, Football..." required />
     <label for="input-4">
       <span class="label-text">Preferences</span>
       <span class="nav-dot"></span>
@@ -57,5 +65,5 @@
 
     <button class="cursor" type="button" (click)="getMaleInfo()">Done</button>
     <p class="tip">Press Tab</p>
-    <div class="signup-button">Start</div>
+    <div class="signup-button">Click me</div>
 </form>
