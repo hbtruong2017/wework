@@ -54,4 +54,13 @@ export class FriendComponent implements OnInit {
 
       }, second)
   }
+
+  randomAddressGenerator(keyword: string) {
+    this.httpClient.get("https://developers.onemap.sg/commonapi/search?searchVal=" + keyword + "&returnGeom=N&getAddrDetails=Y&pageNum=1").subscribe((data: any) => {
+      console.log(data)
+      this.eventAddress = data.results[4]["ADDRESS"]
+    })
+
+  }
+
 }
