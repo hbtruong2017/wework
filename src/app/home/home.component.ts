@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    window.sessionStorage.clear();
+    // window.sessionStorage.clear();
 
     // Check if there are any query params
     let encodedLink = ''
@@ -34,7 +34,10 @@ export class HomeComponent implements OnInit {
     this.maleForm = this.formBuilder.group({
       name: [''],
       age: [''],
-      time: [''],
+      date1: [''],
+      hour1: [''],
+      date2: [''],
+      hour2: [''],
       preferences: [''],
       occasion: ['']
     })
@@ -44,7 +47,10 @@ export class HomeComponent implements OnInit {
     let maleInfo = {
       name: this.maleForm.get("name").value,
       age: this.maleForm.get("age").value,
-      time: this.maleForm.get("time").value,
+      date1: this.maleForm.get("date1").value,
+      hour1: this.maleForm.get("hour1").value,
+      date2: this.maleForm.get("date2").value,
+      hour2: this.maleForm.get("hour2").value,
       preferences: this.maleForm.get("preferences").value,
       occasion: this.maleForm.get("occasion").value
     }
