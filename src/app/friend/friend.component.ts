@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 import Unsplash from 'unsplash-js';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-friend',
@@ -9,13 +11,54 @@ import Unsplash from 'unsplash-js';
 })
 export class FriendComponent implements OnInit {
   link: string;
+  eventName: string;
+  eventPhoto: string;
+  eventAddress: string;
+  eventDate: string;
+  eventTime: string;
+  eventEndTime: string;
 
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  othersLink: string;
+
+  maleInformation: any;
+  friendInformation: any;
+
+
+  constructor(private router: Router, private route: ActivatedRoute, private httpClient: HttpClient) { }
 
   ngOnInit() {
-    let encodedLink = ''
-    this.route.queryParams.subscribe(params => {
-      encodedLink = params['link']
+
+    this.othersLink = window.location.host + "/home";
+
+    let maleInfo = JSON.parse(window.sessionStorage.getItem("maleInfo"));
+    let friendInfo = JSON.parse(window.sessionStorage.getItem("friendInfo"));
+    this.maleInformation = maleInfo;
+    this.friendInformation = friendInfo;
+
+    // https://stackoverflow.com/questions/325933/determine-whether-two-date-ranges-overlap
+    // DateRangesOverlap = max(start1, start2) < min(end1, end2)
+    const months = ["JANUARY", "FEBRUARY", "MARCH","APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"];
+
+    let startTiming = this.getMaxDate(this.returnDateFormat(maleInfo.date1, maleInfo.hour1)[0],
+      this.returnDateFormat(friendInfo.date1, friendInfo.hour1)[0])
+
+    console.log(startTiming)
+
+    let endTiming = this.getMinDate(this.returnDateFormat(maleInfo.date1, maleInfo.hour1)[1],
+      this.returnDateFormat(friendInfo.date1, friendInfo.hour1)[1])
+
+    this.callAPI(maleInfo.preferences)
+    this.randomAddressGenerator(maleInfo.preferences)
+
+    this.eventDate = startTiming.getDate() + " " + months[startTiming.getMonth()] + " " + startTiming.getFullYear();
+    this.eventTime = startTiming.getHours() + ":00"
+    this.eventEndTime = (startTiming.getHours() + 2) + ":00"
+    this.eventName = "Bunavi Mondo " + maleInfo.preferences[0].toUpperCase() + maleInfo.preferences.slice(1) + " event";
+
+    this.countDown(startTiming);
+
+  }
+
   returnDateFormat(date: string, time: string) {
     // Return in format Date(year, month, day, hours, minutes)
 
