@@ -16,6 +16,37 @@ export class FriendComponent implements OnInit {
     let encodedLink = ''
     this.route.queryParams.subscribe(params => {
       encodedLink = params['link']
+  returnDateFormat(date: string, time: string) {
+    // Return in format Date(year, month, day, hours, minutes)
+
+    let dateArray: any = date.split("/");
+    let timeArray: any = time.split("-");
+
+    let arr = [];
+    arr.push(new Date(dateArray[2], dateArray[1], dateArray[0], timeArray[0].split(":")[0], timeArray[0].split(":")[1]))
+    arr.push(new Date(dateArray[2], dateArray[1], dateArray[0], timeArray[1].split(":")[0], timeArray[1].split(":")[1]))
+
+    return arr
+  }
+
+  getMaxDate(date1: string, date2: string) {
+    let maxDates = []
+    maxDates.push(date1)
+    maxDates.push(date2)
+    let maxTiming = new Date(Math.max.apply(null, maxDates));
+    console.log(maxTiming)
+    return maxTiming
+  }
+
+  getMinDate(date1: string, date2: string) {
+    let minDates = []
+    minDates.push(date1)
+    minDates.push(date2)
+    let minTiming = new Date(Math.min.apply(null, minDates));
+    console.log(minTiming)
+    return minTiming
+  }
+
   callAPI(keyword: string) {
     let unsplash = new Unsplash({ accessKey: "gtQitnFbwx0e36pya3jZUcE3uGbFUaOVAGey5a7IgVs" });
 
@@ -64,3 +95,4 @@ export class FriendComponent implements OnInit {
   }
 
 }
+
