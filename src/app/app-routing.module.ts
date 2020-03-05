@@ -4,14 +4,12 @@ import { HomeComponent } from './home/home.component';
 import { LinkComponent } from './link/link.component';
 import { FriendComponent } from './friend/friend.component';
 
-
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },  
   { path: 'home', component: HomeComponent },
   { path: 'link', component: LinkComponent },
-  { path: 'friend', component: FriendComponent }
+  { path: 'result', component: FriendComponent }
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
