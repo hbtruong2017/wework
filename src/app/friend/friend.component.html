@@ -1,3 +1,29 @@
-<p>
-  friend works!
-</p>
+<div class="block">
+    <h3>Hey {{maleInformation.name}}, {{friendInformation.name}}</h3>
+    <h2>The perfect event for your {{maleInformation.occasion}} is</h2>
+
+    <div class="block-img">
+        <img src="{{eventPhoto}}">
+    </div>
+    <div class="block-text">
+        <h1 style="color: rgb(175, 68, 68); font-family: cursive; padding-bottom: 5%;">
+            <i>{{eventName}}</i>
+        </h1>
+        <p style="font-size: smaller; font-family: cursive; padding-bottom: 5%;">Location: {{eventAddress}}</p>
+        <h3 style="font-size: larger; font-family: cursive; color:rgb(230, 66, 54); padding-bottom: 2%;">{{eventDate}}</h3>
+        <h4 style="font-family: cursive; color:rgb(230, 66, 54); padding-bottom: 7%">{{eventTime}} - {{eventEndTime}}</h4>
+        <a [routerLink]="['/home']">
+            <p style="font-family: cursive; font-size: smaller">Other events</p>
+        </a>
+
+    </div>
+    <div class="block-timer ">
+        <p>Starting in ... </p>
+        <ul>
+            <li><span id="days"></span>days</li>
+            <li><span id="hours"></span>Hours</li>
+            <li><span id="minutes"></span>Minutes</li>
+            <li><span id="seconds"></span>Seconds</li>
+        </ul>
+    </div>
+</div>
