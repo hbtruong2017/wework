@@ -12,9 +12,15 @@
         <p style="font-size: smaller; font-family: cursive; padding-bottom: 5%;">Location: {{eventAddress}}</p>
         <h3 style="font-size: larger; font-family: cursive; color:rgb(230, 66, 54); padding-bottom: 2%;">{{eventDate}}</h3>
         <h4 style="font-family: cursive; color:rgb(230, 66, 54); padding-bottom: 7%">{{eventTime}} - {{eventEndTime}}</h4>
-        <a [routerLink]="['/home']">
-            <p style="font-family: cursive; font-size: smaller">Other events</p>
-        </a>
+
+        <div class="block-link">
+            <a [routerLink]="['/home']" style="margin-right:5%">
+                <p style="font-family: cursive; font-size: smaller;">Find out more</p>
+            </a>
+            <a [routerLink]="['/home']">
+                <p style="font-family: cursive; font-size: smaller">Other events</p>
+            </a>
+        </div>
 
     </div>
     <div class="block-timer ">
