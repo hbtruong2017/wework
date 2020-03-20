@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-button',
@@ -12,7 +12,7 @@ export class ButtonComponent implements OnInit {
   link: string;
   hasLink: boolean = false;
   
-  constructor( private route: ActivatedRoute) { }
+  constructor( private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     let encodedLink = ''
@@ -26,6 +26,9 @@ export class ButtonComponent implements OnInit {
       console.log(this.link)
       window.sessionStorage.setItem("friendInfo", this.link)
     } 
+  }
+  navigate() {
+    this.router.navigate(["../link"])
   }
 
 }

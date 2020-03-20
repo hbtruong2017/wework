@@ -7,10 +7,10 @@ import { ButtonComponent } from './button/button.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },  
-  { path: 'home', component: HomeComponent },
+  { path: 'home', component: ButtonComponent },
   { path: 'link', component: LinkComponent },
   { path: 'result', component: FriendComponent },
-  { path: 'button', component: ButtonComponent }
+  { path: 'button', component: HomeComponent }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
