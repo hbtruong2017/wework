@@ -8,13 +8,15 @@ import { HomeComponent } from './home/home.component';
 import { LinkComponent } from './link/link.component';
 import { FriendComponent } from './friend/friend.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ButtonComponent } from './button/button.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LinkComponent,
-    FriendComponent
+    FriendComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,
