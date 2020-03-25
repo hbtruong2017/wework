@@ -1,0 +1,15 @@
+{
+    "status": "success",
+    "data": [
+        {
+            "name": "Bob Dylan",
+            "description": "I style, you smile",
+            "image": ""
+        },
+        {
+            "name": "Darren Tay",
+            "description": "I mustache you",
+            "image": ""
+        }
+    ]
+}
